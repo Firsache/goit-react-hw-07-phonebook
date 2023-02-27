@@ -6,15 +6,21 @@ import { Notification } from 'components';
 import { Button } from 'components/Form/Form.styled';
 
 import { List, Item, Text } from './Contacts.styled';
+import { useEffect } from 'react';
+import { getContacts, delContacts } from 'redux/operations';
 
 export function Contacts() {
   const contacts = useSelector(selectContacts);
   const filteredName = useSelector(selectFilteredName);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // const deleteSelectedContact = contactId => {
-  //   dispatch(deleteContact(contactId));
-  // };
+  useEffect(() => {
+    dispatch(getContacts());
+  }, [dispatch]);
+
+  const deleteSelectedContact = contactId => {
+    dispatch(delContacts(contactId));
+  };
 
   const getFilteredContacts = (contacts, filter) => {
     return contacts.filter(contact =>
@@ -28,15 +34,15 @@ export function Contacts() {
     <>
       {Boolean(filteredContacts.length) && (
         <List>
-          {filteredContacts.map(({ id, name, number }) => (
+          {filteredContacts.map(({ id, name, phone }) => (
             <Item key={id}>
               <Text>
-                {name}: <span>{number}</span>
+                {name}: <span>{phone}</span>
               </Text>
               <Button
-              // onClick={() => {
-              //   deleteSelectedContact(id);
-              // }}
+                onClick={() => {
+                  deleteSelectedContact(id);
+                }}
               >
                 Delete
               </Button>
