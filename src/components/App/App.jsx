@@ -47,7 +47,7 @@ export function App() {
             <Title>Phonebook</Title>
           </Box>
 
-          <ThemeSwitcher />
+          {/* <ThemeSwitcher /> */}
         </Box>
         <Container>
           <Form />

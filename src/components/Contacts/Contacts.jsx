@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { selectContacts, selectFilteredName } from 'redux/contacts/selectors';
-import { deleteContact } from 'redux/contacts/contactsSlice';
+// import { deleteContact } from 'redux/contacts/contactsSlice';
 
 import { Notification } from 'components';
 import { Button } from 'components/Form/Form.styled';
@@ -10,11 +10,11 @@ import { List, Item, Text } from './Contacts.styled';
 export function Contacts() {
   const contacts = useSelector(selectContacts);
   const filteredName = useSelector(selectFilteredName);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const deleteSelectedContact = contactId => {
-    dispatch(deleteContact(contactId));
-  };
+  // const deleteSelectedContact = contactId => {
+  //   dispatch(deleteContact(contactId));
+  // };
 
   const getFilteredContacts = (contacts, filter) => {
     return contacts.filter(contact =>
@@ -34,9 +34,9 @@ export function Contacts() {
                 {name}: <span>{number}</span>
               </Text>
               <Button
-                onClick={() => {
-                  deleteSelectedContact(id);
-                }}
+              // onClick={() => {
+              //   deleteSelectedContact(id);
+              // }}
               >
                 Delete
               </Button>

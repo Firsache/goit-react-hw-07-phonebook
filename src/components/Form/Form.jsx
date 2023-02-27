@@ -4,12 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 
 import { Section } from 'components/Section/Section';
-import { addContact } from 'redux/contacts/contactsSlice';
+// import { addContact } from 'redux/contacts/contactsSlice';
 
 import { FormComponent, Label, Span, Input, Button } from './Form.styled';
 
 export function Form() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const contacts = useSelector(state => state.contacts.contacts);
 
   const [name, setName] = useState('');
@@ -37,10 +37,10 @@ export function Form() {
       });
       return;
     }
-    dispatch(addContact({ name: name.trim(), number }));
+    // dispatch(addContact({ name: name.trim(), number }));
 
-    setName('');
-    setNumber('');
+    // setName('');
+    // setNumber('');
   };
 
   return (
