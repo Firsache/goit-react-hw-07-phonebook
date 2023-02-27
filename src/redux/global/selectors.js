@@ -1,1 +1,1 @@
-// export const selectThemeTitle = state => state.global.themeTitle;
+export const selectThemeTitle = state => state.global.themeTitle;
