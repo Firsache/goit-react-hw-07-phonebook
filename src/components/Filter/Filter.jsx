@@ -1,17 +1,18 @@
+// import { useSelector } from 'react-redux';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { selectFilteredName } from 'redux/contacts/selectors';
-// import { setFilteredName } from 'redux/contacts/contactsSlice';
+import { setFilteredName } from 'redux/contacts/contactsSlice';
 
 import { Label, Span, Input } from 'components/Form/Form.styled';
 
 export function Filter() {
   const filteredName = useSelector(selectFilteredName);
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-  // const handleFilter = event => {
-  //   dispatch(setFilteredName(event.target.value));
-  // };
+  const handleFilter = event => {
+    dispatch(setFilteredName(event.target.value));
+  };
 
   return (
     <Label>
@@ -23,7 +24,7 @@ export function Filter() {
         title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
         required
         value={filteredName}
-        // onChange={handleFilter}
+        onChange={handleFilter}
       />
     </Label>
   );
