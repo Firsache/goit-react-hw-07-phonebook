@@ -5,21 +5,21 @@ import { toast } from 'react-toastify';
 
 import { Section } from 'components/Section/Section';
 // import { addContact } from 'redux/contacts/contactsSlice';
-
+import { addContacts } from 'redux/operations';
 import { FormComponent, Label, Span, Input, Button } from './Form.styled';
 
 export function Form() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const contacts = useSelector(state => state.contacts.contacts);
 
   const [name, setName] = useState('');
-  const [number, setNumber] = useState('');
+  const [phone, setPhone] = useState('');
 
   const handleInputChange = evt => {
     const { name, value } = evt.target;
 
     if (name === 'name') setName(value);
-    if (name === 'number') setNumber(value);
+    if (name === 'phone') setPhone(value);
   };
 
   const handleSubmit = evt => {
@@ -31,16 +31,16 @@ export function Form() {
       });
       return;
     }
-    if (contacts.some(c => c.number === number)) {
-      toast.error(`Contact ${number} already exists!`, {
+    if (contacts.some(c => c.number === phone)) {
+      toast.error(`Contact ${phone} already exists!`, {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
       return;
     }
-    // dispatch(addContact({ name: name.trim(), number }));
+    dispatch(addContacts({ name: name.trim(), phone }));
 
-    // setName('');
-    // setNumber('');
+    setName('');
+    setPhone('');
   };
 
   return (
@@ -62,11 +62,11 @@ export function Form() {
           <Span>Number</Span>
           <Input
             type="tel"
-            name="number"
+            name="phone"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
             required
-            value={number}
+            value={phone}
             onChange={handleInputChange}
           />
         </Label>
