@@ -1,4 +1,3 @@
-// import { useSelector } from 'react-redux';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { selectFilteredName } from 'redux/contacts/selectors';
