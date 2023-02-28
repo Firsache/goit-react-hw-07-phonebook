@@ -7,5 +7,6 @@ export const light = {
     text: '#000000',
     accent: '#ff6b08',
     backdrop: '#000057',
+    icon: '#000000',
   },
 };

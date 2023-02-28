@@ -18,6 +18,7 @@ export const Label = styled.label`
     position: absolute;
     top: 30px;
     left: ${p => p.theme.space[3]}px;
+    color: ${p => p.theme.colors.icon};
   }
 `;
 
@@ -26,7 +27,7 @@ export const Span = styled.span`
 `;
 export const Input = styled.input`
   padding: ${p => p.theme.space[2]}px;
-  padding-left: 24px;
+  padding-left: 26px;
   width: 250px;
 
   color: ${p => p.theme.colors.text};

@@ -7,5 +7,6 @@ export const dark = {
     text: '#F7F7F7',
     accent: '#ff6b08',
     backdrop: '#000057',
+    icon: '#ff6b08',
   },
 };
