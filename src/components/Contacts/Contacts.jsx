@@ -23,8 +23,8 @@ export function Contacts() {
   };
 
   const getFilteredContacts = (contacts, filter) => {
-    return contacts.filter(contact =>
-      contact.name.toLowerCase().includes(filter.toLowerCase())
+    return contacts.filter(c =>
+      c.name.toLowerCase().includes(filter.toLowerCase())
     );
   };
 
