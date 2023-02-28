@@ -3,14 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { toast } from 'react-toastify';
 
-import { Section } from 'components/Section/Section';
-// import { addContact } from 'redux/contacts/contactsSlice';
 import { addContacts } from 'redux/operations';
+import { selectContacts } from 'redux/contacts/selectors';
+
+import { Section } from 'components/Section/Section';
 import { FormComponent, Label, Span, Input, Button } from './Form.styled';
 
 export function Form() {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts.contacts);
+  const contacts = useSelector(selectContacts);
 
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
@@ -31,7 +32,7 @@ export function Form() {
       });
       return;
     }
-    if (contacts.some(c => c.number === phone)) {
+    if (contacts.some(c => c.phone === phone)) {
       toast.error(`Contact ${phone} already exists!`, {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
