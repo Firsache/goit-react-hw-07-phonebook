@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { toast } from 'react-toastify';
+import { BsPersonPlus, BsTelephonePlus } from 'react-icons/bs';
 
 import { addContacts } from 'redux/operations';
 import { selectContacts } from 'redux/contacts/selectors';
@@ -49,6 +50,7 @@ export function Form() {
       <FormComponent onSubmit={handleSubmit}>
         <Label>
           <Span>Name</Span>
+          <BsPersonPlus size={15} className="icon" />
           <Input
             type="text"
             name="name"
@@ -61,6 +63,7 @@ export function Form() {
         </Label>
         <Label>
           <Span>Number</Span>
+          <BsTelephonePlus size={15} className="icon" />
           <Input
             type="tel"
             name="phone"

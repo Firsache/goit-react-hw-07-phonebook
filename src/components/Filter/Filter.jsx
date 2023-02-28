@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
+import { BsSearch } from 'react-icons/bs';
 
 import { selectFilteredName } from 'redux/contacts/selectors';
 import { setFilteredName } from 'redux/contacts/contactsSlice';
@@ -16,6 +17,7 @@ export function Filter() {
   return (
     <Label>
       <Span>Find contacts by name</Span>
+      <BsSearch size={15} className="icon" />
       <Input
         type="text"
         name="filterName"

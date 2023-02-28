@@ -8,10 +8,17 @@ export const FormComponent = styled.form`
 `;
 
 export const Label = styled.label`
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: ${p => p.theme.space[2]}px;
   padding-bottom: ${p => p.theme.space[4]}px;
+
+  .icon {
+    position: absolute;
+    top: 30px;
+    left: ${p => p.theme.space[3]}px;
+  }
 `;
 
 export const Span = styled.span`
@@ -19,7 +26,7 @@ export const Span = styled.span`
 `;
 export const Input = styled.input`
   padding: ${p => p.theme.space[2]}px;
-  padding-left: ${p => p.theme.space[3]}px;
+  padding-left: 24px;
   width: 250px;
 
   color: ${p => p.theme.colors.text};
