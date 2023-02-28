@@ -4,7 +4,12 @@ import { MdContactPhone } from 'react-icons/md';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { selectContacts, selectFilteredName } from 'redux/contacts/selectors';
+import {
+  selectContacts,
+  selectError,
+  selectFilteredName,
+  selectLoader,
+} from 'redux/contacts/selectors';
 import { selectThemeTitle } from 'redux/global/selectors';
 
 import { Container, Title } from './App.styled';
@@ -19,12 +24,15 @@ import {
   Section,
   ThemeSwitcher,
   Box,
+  Loader,
 } from '../index';
 
 export function App() {
   const contacts = useSelector(selectContacts);
   const themeTitle = useSelector(selectThemeTitle);
   const filteredName = useSelector(selectFilteredName);
+  const error = useSelector(selectError);
+  const loading = useSelector(selectLoader);
   const normalizedTheme = { ...theme, ...colors[themeTitle] };
 
   return (
@@ -55,6 +63,8 @@ export function App() {
             {(contacts.length > 1 || filteredName) && <Filter />}
             <Contacts />
           </Section>
+          {loading && <Loader themeNorm={normalizedTheme} />}
+          {error && <div>Ooops, something went wrong.. Try a bit later</div>}
           <ToastContainer autoClose={3000} />
           <GlobalStyles />
         </Container>
