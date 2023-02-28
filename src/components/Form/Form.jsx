@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { BsPersonPlus, BsTelephonePlus } from 'react-icons/bs';
 
-import { addContacts } from 'redux/operations';
+import { addContacts } from 'redux/contacts/operations';
 import { selectContacts } from 'redux/contacts/selectors';
 
 import { Section } from 'components/Section/Section';

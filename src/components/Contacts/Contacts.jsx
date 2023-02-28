@@ -7,7 +7,7 @@ import { Button } from 'components/Form/Form.styled';
 
 import { List, Item, Text } from './Contacts.styled';
 import { useEffect } from 'react';
-import { getContacts, delContacts } from 'redux/operations';
+import { getContacts, delContacts } from 'redux/contacts/operations';
 
 export function Contacts() {
   const contacts = useSelector(selectContacts);
